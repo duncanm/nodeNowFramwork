@@ -1,0 +1,195 @@
+BODY{
+font-family: verdana, sans-serif;
+font-size: 15px;
+}
+
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+
+.case_category_select{
+width:160px;
+}
+
+
+.tblHeaderTable{
+width:100%;
+}
+
+.chkShowMenu{
+text-align:right;
+font-weight:normal;
+font-size:14px;
+}
+
+.ui-table-title-helper{
+height: 100%;
+}
+
+
+.case_edit_label{
+width:90px;
+}
+
+
+.case_column_gap{
+width:20px;
+}
+
+
+.case_edit_value{
+width:150px;
+}
+
+.rightpaneparent{
+border-style:solid;
+border-width:.5px;
+border-color: #C5DBFF;
+height:30px;
+margin: 3px 3px 3px 3px;
+-moz-border-radius-bottomleft: 4px;
+-moz-border-radius-bottomright: 4px;
+-moz-border-radius-topright: 4px;
+-moz-border-radius-topleft: 4px;
+
+}
+
+
+.ui-helper-title{
+width:100%;
+height:100%;
+vertical-align: middle;
+}
+
+
+.divrightpaneborder{
+border-style:solid;
+height:90%;
+border-width:.5px;
+border-color: #C5DBFF;
+padding: 2px 2px 2px 2px;
+}
+
+
+#rightpanetitlebar{
+height: 42px;
+
+-moz-border-radius-bottomleft: 5px;
+-moz-border-radius-bottomright: 5px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-topleft: 5px;
+margin: 3px 3px 3px 3px;
+}
+
+
+.rightPaneImage{
+height: 33px;
+width: 100%;
+-moz-border-radius-bottomleft: 5px;
+-moz-border-radius-bottomright: 5px;
+-moz-border-radius-topright: 5px;
+-moz-border-radius-topleft: 5px;
+}
+
+
+#rightpaneparent{
+margin: 2px 2px 2px 2px;
+}
+
+
+.logininformation{
+background-color: #FFFFFF;
+float:right;
+height: 100%;
+vertical-align: middle;
+}
+
+
+.logoutlink{
+color: #000000}
+
+
+#divCadDetail{
+}
+
+
+.tblLogin{
+vertical-align: middle;
+height: 100%;
+table-layout:fixed;
+width:100%;
+}
+
+
+.imgTabIcon{
+height:8px;
+width:8px;
+}
+
+
+.divheader{
+height: 35px;
+/*background: url("/images/index.png") repeat-x scroll left top transparent;*/
+background: url("/css/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png") repeat-x scroll left top transparent;
+
+margin: 5px 5px 5px 5px;
+width:98%;
+border-top-width:0px;
+border-left-width:0px;
+border-right-width:0px;
+border-style:solid;
+border-bottom-width:thin;
+border-color: #C5DBEC;
+-moz-border-radius-bottomleft: 2px;
+-moz-border-radius-bottomright: 2px;
+-moz-border-radius-topright: 2px;
+-moz-border-radius-topleft: 2px;
+}
+
+
+.divRightPane{
+height : 600px;
+}
+
+.divCadFooter{
+float:bottom;
+height: 25px;
+}
+
+
+
+.divCadMenu{
+}
+
+.divCadFooter
+{
+background-color: #C5DBEC;
+margin: 5px 5px 5px 5px;
+}
+
+#accordion{
+height: 590px;}
+
+#edtCADQuickEntry{
+width: 228px;
+}
+
+
+.icoAppTitle{
+height:32px;
+width:32px;
+}
+
+
+
+.tdicoAppTitle{
+width:35px;
+}
+
+
+.tdCADAccordionPanelLink{
+cursor:pointer;
+}
+
+.tdCADAccordionPanelIcon{
+cursor:pointer;
+}
+

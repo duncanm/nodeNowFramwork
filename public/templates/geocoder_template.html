@@ -1,0 +1,28 @@
+<script type="text/template" id="geocoder_template">
+	<form class="geocoderform">
+	<table>
+		<tr>
+			<td>Street NameName<input type="text" name="StreetName" value="<%= StreetName %>" /></td>
+		</tr>
+		<tr>
+			<td>Street Number<input type="text" name="StreetName" value="<%= StreetNumber %>" /></td>
+		</tr>
+		<tr>
+			<td>CPN<input type="text" name="cpn" value="<%=cpn %>" /></td>
+		</tr>
+		<tr>
+			<td>Suburb<input type="text" name="suburb" value="<%= suburb %>" /></td>
+		</tr>
+	</table>
+
+	<table style="width:100%">
+		<tr>
+			<td><input id="btnGeocodeGoogleIt" type="button" value="Google It" /></td>
+	 	</tr>
+		<tr>
+			<td><input id="btnGeocoderClose" type="button" value="Close" /></td>
+	 	</tr>
+	</table>
+	</form>
+	
+</script>

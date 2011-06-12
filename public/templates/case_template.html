@@ -1,0 +1,35 @@
+<script type="text/template" id="case_template">
+	<form class="caseform">
+	<table style="width:100%">
+		<tr>
+			<td><label class="edit case_edit_label">Address1</label></td>
+			<td><input class="case_edit case_edit required" type="text" value="<%= address1 %>" id="case_address1" /></td>
+			<td class="case_column_gap"></td>
+			<td><label class="case_edit_label">Address2</label></td>
+			<td><input class="case_edit case_edit_value" name="address2" type="text" value="<%= address2 %>" id="case_address2" /></td>
+			<td class="case_column_gap"></td>
+			<td><label class="case_edit_label">Age</label></td>
+			<td><input class="case_edit case_edit_value required" type="text" value="<%= address1 %>" id="case_address1" /></td>
+			<td class="case_column_gap"></td>
+			<td><label class="case_edit_label">Name</label></td>
+			<td><input class="case_edit case_edit_value" name="address2" type="text" value="<%= address2 %>" id="case_address2" /></td>
+		</tr>
+		<tr>
+			<td><label class="case_edit_label">Category</label></td>
+			<td><select class="case_edit case_category_select" name="category" id="case_category" /></select></td>
+			<td><label class="case_edit_label">D.O.B</label></td>
+			<td><input class="case_edit case_edit_value" name="dob" type="text" value="<%= dob %>" id="case_dob" /></td>
+		</tr>
+		</table>
+		<table>
+		<tr>
+			<td></td>
+			<td></td>
+			<td><input id="btnCaseSave" type="button"  value="Save" /></td>
+			<td><input id="btnCaseClose" type="button" value="Close" /></td>
+	 	</tr>
+	</table>
+	</form>
+	
+	
+</script>
