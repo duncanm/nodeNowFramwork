@@ -1,13 +1,28 @@
-var Cases = function (everyone) {
+var check = require('validator').check,
+	sanitize = require('validator').sanitize,
+	crud = require('./crud').crud(),
+	tablename = "cases",
+	database;
 
-	everyone.now.consoleTest3 = function (callback) {
-		console.log("test3!");
-	};
 
-	everyone.now.createCase = function (callback, thecase) {
-		console.log("save case");
-		console.log(callback);
-		callback("furkle");
+
+var Cases = function (everyone, thedatabase) {
+
+	database = thedatabase;
+	
+
+	everyone.now.createCase = function (callback, failcallback, thecase) {
+	    var createsqll
+	    console.log(thecase);
+		try {		
+			check(thecase.address1, 'Please enter address 1').notEmpty();
+			console.log('success call back');
+			console.log(callback);
+			crud.create(database, tablename, thecase, callback);
+			} 
+		catch(error) {
+			failcallback('failed:' + error);
+			}	
 	};
 	
 	everyone.now.retrieveCase = function (callback, thecase) {
@@ -33,6 +48,6 @@ var Cases = function (everyone) {
 	
 	};
 
-exports.cases = function(everyone) {
-       return new Cases(everyone);
+exports.cases = function(everyone, database) {
+       return new Cases(everyone, database);
 };

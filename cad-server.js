@@ -2,13 +2,14 @@ var
   path = require('path'),
   http = require('http'),
   paperboy = require('paperboy'),
-  db = require('mysql-native').createTCPClient(),
   nowjs = require("now"),
    _ = require('underscore')._,
   backbone = require('backbone'), 
+  Client = require('mysql').Client,
+  client = new Client(),
+  TEST_DATABASE = 'nodejs_mysql_test',
+  TEST_TABLE = 'test',
   cad;
-
-
 
   PORT = 8003,
   WEBROOT = path.join(path.dirname(__filename), 'public');
@@ -20,7 +21,6 @@ server = http.createServer(function(req, res) {
     .addHeader('Expires', 300)
     .addHeader('X-PaperRoute', 'Node')
     .before(function() {
-      console.log('Received Request');
     })
     .after(function(statCode) {
       log(statCode, req.url, ip);
@@ -39,9 +39,16 @@ server = http.createServer(function(req, res) {
 
 server.listen(PORT);
 everyone = nowjs.initialize(server);
-db.auto_prepare = true;
-db.auth("cad", "node", "node");
-cad = require("./cad-system.js").cad(server, everyone, db);
+
+
+
+client.user = 'node';
+client.password = 'node';
+client.database = 'cad';
+client.connect(connected);
+
+
+cad = require("./cad-system.js").cad(server, everyone, client);
 
 
 everyone.now.consoleTest = function() {
@@ -49,9 +56,24 @@ everyone.now.consoleTest = function() {
 	};
 
 
+everyone.now.reportInsertion = function( tablename, id ){
+	console.log(tablename, id);
+	everyone.now.receiveInsertion(tablename, id);
+};
+
+
+
 function log(statCode, url, ip, err) {
   var logStr = statCode + ' - ' + url + ' - ' + ip;
   if (err)
     logStr += ' - ' + err;
-  console.log(logStr);
+  //console.log(logStr);
 }
+
+function connected() {
+	console.log('db connected');
+	client.query("SET @@session.date_format='%d-%m-%Y'");
+
+	
+	
+};

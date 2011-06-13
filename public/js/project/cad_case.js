@@ -11,8 +11,7 @@ Case = Backbone.Model.extend({
 	initialize: function (){
 		this.set({address1: ""});
 		this.set({address2: ""});
-		this.set({category: 0});
-		this.set({dob: "01-Aug-1969"});
+		this.set({dob: "01-08-1969"});
 		this.set({id: 0});
 	},
 	
@@ -34,6 +33,11 @@ Cases = Backbone.Collection.extend({model: Case,
 CaseView = Backbone.View.extend({
 	tagName: 'div',
 	
+	initialize: function () {
+			_.bindAll(this, "onCaseCreated");
+	},
+	
+	
 	canClose: function () {
 		return true; //to do.. apply business rules to derive this decision
    },
@@ -48,6 +52,7 @@ CaseView = Backbone.View.extend({
 		CAD.fillSelectWithCollection(this.$('#case_category'), CAD.caseController.caseCategories, "categorycode");
 		this.$('#case_dob').datepicker({
 			showOn: "button",
+			dateFormat: 'yy-mm-dd', 
 			buttonImage: "images/calendar.gif",
 			buttonImageOnly: true
 		});
@@ -67,13 +72,27 @@ CaseView = Backbone.View.extend({
 		return this.$('.caseform').validate().form();
 	},	
 
-	onCaseSaved: function (message) {
+	onCaseCreated: function (newid) {
+			this.model.set({id: newid});
+			console.log("ID:"  + this.model.get("id") );
+
+	},
+
+	onFailSaved: function (message) {
 			console.log(message);
 	},
 
+
+
 	saveCase: function (event) {
 		if (this.validateForm()){
-			now.createCase(this.onCaseSaved, this.model);
+			if ( this.model.get('id') == 0)  {
+				now.createCase(this.onCaseCreated, this.onFailSaved, this.model);
+			}
+			else
+			{
+				now.updateCase(this.onCaseSaved, this.onFailSaved, this.model);
+			};
 			};
 	},
 
@@ -116,8 +135,6 @@ CAD.caseController = {
 		this.caseViews.push(newCaseView);
 		newCaseView.tab = CAD.addViewTab("Case");
 		$(newCaseView.tab).append(newCaseView.render().el);
-		console.log(newCaseView.model);
-		now.consoleTest();
 	},
 							
 						

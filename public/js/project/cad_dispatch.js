@@ -8,15 +8,12 @@ var	CAD = {
 		this.controllers = [];
 		this.menuHidden = false;
 		this.now = now;
+		now.receiveInsertion = function(tablename, id){
+			console.log('insertion ' + tablename + ' ' + id);
+		};
+		
 		this.now.ready(function(){
-			console.log('neow ready');
-			console.log(now.caseCount);
-			now.identity = "duncan";
-			now.consoleTest();
-			now.consoleTest2();
-			now.consoleTest3();
-			
-			
+			console.log("now ready");
 			});
 	},
 
@@ -88,6 +85,9 @@ var	CAD = {
 
 $(document).ready(function () {
 	CAD.initCAD();
+	
+	
+	
 });
 
 
