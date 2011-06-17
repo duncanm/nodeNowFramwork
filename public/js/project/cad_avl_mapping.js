@@ -44,6 +44,16 @@ CAD.AVLmappingController = {
 		this.mappingViews.push(newMappingView);
 		newMappingView.tab = CAD.addViewTab("AVL");
 		$(newMappingView.tab).append(newMappingView.render().el);
+		
+		var latlng = new google.maps.LatLng(-34.397, 150.644);
+		var myOptions = {
+				zoom: 8,
+				center: latlng,
+				mapTypeId: google.maps.MapTypeId.ROADMAP};
+	    console.log(newMappingView.tab.substring(1, newMappingView.tab.length));
+	    
+		var map = new google.maps.Map(document.getElementById(newMappingView.tab.substring(1, newMappingView.tab.length)), myOptions);
+		
 	},
 							
 								

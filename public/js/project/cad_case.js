@@ -12,6 +12,8 @@ Case = Backbone.Model.extend({
 		this.set({address1: ""});
 		this.set({address2: ""});
 		this.set({dob: "01-08-1969"});
+		this.set({type:"case"});
+		this.set({createdby: CAD.username});
 		this.set({id: 0});
 	},
 	
@@ -81,7 +83,10 @@ CaseView = Backbone.View.extend({
 	onFailSaved: function (message) {
 			console.log(message);
 	},
-
+	
+	onCaseUpdated : function (message) {
+			console.log(message);
+	},
 
 
 	saveCase: function (event) {
@@ -91,7 +96,7 @@ CaseView = Backbone.View.extend({
 			}
 			else
 			{
-				now.updateCase(this.onCaseSaved, this.onFailSaved, this.model);
+				now.updateCase(this.onCaseUpdated, this.onFailSaved, this.model);
 			};
 			};
 	},
@@ -115,7 +120,6 @@ CAD.caseController = {
 	initialize: function () {
 		_.bindAll(this);
 		this.caseCategories = new CADCaseCategories();
-		this.caseCategories.fetch();
 		this.activeCases = new Cases();
 	},
 
@@ -129,6 +133,7 @@ CAD.caseController = {
 	
 	onAddCase: function () {
 		var newCaseView;
+		this.caseCategories.fetch();
 		newCaseView = new CaseView();
 		newCaseView.model = new Case({address1: "test"});
 		newCaseView.controller = this;

@@ -8,6 +8,7 @@ var	CAD = {
 		this.controllers = [];
 		this.menuHidden = false;
 		this.now = now;
+		this.username = "duncan";
 		now.receiveInsertion = function(tablename, id){
 			console.log('insertion ' + tablename + ' ' + id);
 		};
