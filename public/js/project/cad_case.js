@@ -51,7 +51,7 @@ CaseView = Backbone.View.extend({
 			_.template($("#case_template").html(),
 				this.model.toJSON())
 		);
-		CAD.fillSelectWithCollection(this.$('#case_category'), CAD.caseController.caseCategories, "categorycode");
+		CAD.fillSelectWithCollection(this.$('#case_category'), CAD.caseController.caseCategories, "title");
 		this.$('#case_dob').datepicker({
 			showOn: "button",
 			dateFormat: 'yy-mm-dd', 
@@ -120,6 +120,7 @@ CAD.caseController = {
 	initialize: function () {
 		_.bindAll(this);
 		this.caseCategories = new CADCaseCategories();
+		CAD.whenNowIsReadyDo(this.caseCategories.fetch);
 		this.activeCases = new Cases();
 	},
 
@@ -133,7 +134,6 @@ CAD.caseController = {
 	
 	onAddCase: function () {
 		var newCaseView;
-		this.caseCategories.fetch();
 		newCaseView = new CaseView();
 		newCaseView.model = new Case({address1: "test"});
 		newCaseView.controller = this;

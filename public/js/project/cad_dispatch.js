@@ -6,16 +6,30 @@ var	CAD = {
 		this.styleMainMenu();
 		this.styleTabs();
 		this.controllers = [];
+		this.whenNowIsReady = [];
 		this.menuHidden = false;
 		this.now = now;
 		this.username = "duncan";
+		
+		this.doWhenNowIsReady = function () {
+			for (var i=0; i < this.whenNowIsReady.length; i++) {
+					this.whenNowIsReady[i]();
+			}
+		};
+			
 		now.receiveInsertion = function(tablename, id){
 			console.log('insertion ' + tablename + ' ' + id);
 		};
 		
-		this.now.ready(function(){
-			console.log("now ready");
+		now.ready(function(){
+			CAD.doWhenNowIsReady();
 			});
+	},
+
+
+
+	whenNowIsReadyDo: function (callback) {
+		this.whenNowIsReady.push(callback);
 	},
 
 	styleMainMenu: function () {
@@ -86,9 +100,6 @@ var	CAD = {
 
 $(document).ready(function () {
 	CAD.initCAD();
-	
-	
-	
 });
 
 

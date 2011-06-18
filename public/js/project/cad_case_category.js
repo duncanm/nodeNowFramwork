@@ -6,19 +6,19 @@ CADCaseCategory = Backbone.Model.extend({
 CADCaseCategories = Backbone.Collection.extend({
 		model:CADCaseCategory,
 		
-		onGotCaseCategories: function (data) {
-		console.log(data);
-		console.log(this);
+		initialize: function () {
+			_.bindAll(this, "onGotCaseCategories");
+			_.bindAll(this, "fetch");
+			
 		},
 		
+		onGotCaseCategories: function (data) {
+			this.addCouchData(data);
+		},
 		
 		fetch: function () {
 			now.getCaseCategories(this.onGotCaseCategories);
 		},
-		
-		initialize: function () {
-		},
-		
 		
 		
 });

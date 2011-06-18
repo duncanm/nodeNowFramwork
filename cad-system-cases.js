@@ -44,7 +44,7 @@ var Cases = function (everyone, thedatabase) {
 	
 	
 	everyone.now.getCaseCategories = function (callback) {
-		db.view('casecategories/all', function (err, res) {
+		db.view('casecategories/test', function (err, res) {
 										callback(res);
 									});
 	};
