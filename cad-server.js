@@ -35,7 +35,8 @@ server = http.createServer(function(req, res) {
 			req.session.data.password = urlParams.cadpassword;
 			req.session.loggedIn = true;
 			req.url = "index.html";	
-			console.log("Logged in:"  + urlParams.cadname);
+			res.writeHead(302, { 'Location': 'index.html'});
+			res.end();
 		}	
 		else
 		{
@@ -54,9 +55,6 @@ server = http.createServer(function(req, res) {
 		req.url = "/login.html";	
 	};
   
-
-  console.log("getting:" + req.url);
-	
   paperboy
     .deliver(WEBROOT, req, res)
     .addHeader('Expires', 300)

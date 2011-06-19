@@ -11,6 +11,17 @@ AVLMappingView = Backbone.View.extend({
 		return true; //to do.. apply business rules to derive this decision
    },
 
+	createMap: function (){
+		$('#mappingContainer', this.el).append("<div>hello</div>");
+	   var latlng = new google.maps.LatLng(-34.397, 150.644);
+	   var options = {
+			zoom: 8,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP};
+	    this.map = new google.maps.Map(document.getElementById(this.tab.substring(1, this.tab.length)), options);
+	},
+	
+
 	closeMap: function (event) {
 		this.controller.closeView(this);
 			},
@@ -44,15 +55,8 @@ CAD.AVLmappingController = {
 		this.mappingViews.push(newMappingView);
 		newMappingView.tab = CAD.addViewTab("AVL");
 		$(newMappingView.tab).append(newMappingView.render().el);
-		
-		var latlng = new google.maps.LatLng(-34.397, 150.644);
-		var myOptions = {
-				zoom: 8,
-				center: latlng,
-				mapTypeId: google.maps.MapTypeId.ROADMAP};
-	    var map = new google.maps.Map(document.getElementById(newMappingView.tab.substring(1, newMappingView.tab.length)), myOptions);
-		
-	},
+	    newMappingView.createMap(); 
+	    },
 							
 								
 	mappingViews : []
