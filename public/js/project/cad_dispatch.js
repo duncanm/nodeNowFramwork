@@ -37,7 +37,7 @@ var	CAD = {
 	},
 	
 	styleTabs: function () {
-		this.mainTabSet = $("#tabs").tabs().find(".ui-tabs-nav").sortable({axis: "x"});
+		this.mainTabSet = $("#tabs").tabs().find(".ui-tabs-nav");
 	},
 	
 	snoopKeyPress: function (key) {
@@ -66,6 +66,7 @@ var	CAD = {
 		var newTab,
 			newTabDivName = _.uniqueId("#tab_");
 		newTab = $("#tabs").tabs("add", newTabDivName, tabName);
+		$(newTab).height(600);
 		$("#tabs").tabs("select", newTabDivName);
 		
 		return newTabDivName;

@@ -50,9 +50,7 @@ CAD.AVLmappingController = {
 				zoom: 8,
 				center: latlng,
 				mapTypeId: google.maps.MapTypeId.ROADMAP};
-	    console.log(newMappingView.tab.substring(1, newMappingView.tab.length));
-	    
-		var map = new google.maps.Map(document.getElementById(newMappingView.tab.substring(1, newMappingView.tab.length)), myOptions);
+	    var map = new google.maps.Map(document.getElementById(newMappingView.tab.substring(1, newMappingView.tab.length)), myOptions);
 		
 	},
 							
