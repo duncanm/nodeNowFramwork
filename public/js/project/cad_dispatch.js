@@ -11,6 +11,18 @@ var	CAD = {
 		this.now = now;
 		this.username = "duncan";
 		
+		$(window).resize(function() {
+			CAD.sizeComponents();
+			});
+		
+		this.sizeComponents = function () {
+			$(".divCadMenu").height(.85*$(window).height());
+			$(".ui-tabs-panel").height(.784*$(window).height());
+			 
+		};
+		
+		this.sizeComponents();
+		
 		this.doWhenNowIsReady = function () {
 			for (var i=0; i < this.whenNowIsReady.length; i++) {
 					this.whenNowIsReady[i]();
@@ -66,9 +78,8 @@ var	CAD = {
 		var newTab,
 			newTabDivName = _.uniqueId("#tab_");
 		newTab = $("#tabs").tabs("add", newTabDivName, tabName);
-		$(newTab).height(600);
 		$("#tabs").tabs("select", newTabDivName);
-		
+		this.sizeComponents();
 		return newTabDivName;
 	},	
 		

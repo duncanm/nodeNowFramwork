@@ -1,6 +1,7 @@
 BODY{
 font-family: verdana, sans-serif;
 font-size: 15px;
+height:100%;
 }
 
 label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
@@ -60,11 +61,6 @@ vertical-align: middle;
 
 
 .divrightpaneborder{
-border-style:solid;
-height:90%;
-border-width:.5px;
-border-color: #C5DBFF;
-padding: 2px 2px 2px 2px;
 }
 
 
@@ -87,6 +83,11 @@ width: 100%;
 -moz-border-radius-topright: 5px;
 -moz-border-radius-topleft: 5px;
 }
+
+#rightpane{
+height:100%;
+};
+
 
 
 #rightpaneparent{
@@ -148,24 +149,26 @@ border-color: #C5DBEC;
 height : 600px;
 }
 
-.divCadFooter{
-float:bottom;
-height: 25px;
-}
 
 
 
 .divCadMenu{
+border-style:solid;
+border-width:.5px;
+border-color: #C5DBFF;
+padding: 2px 2px 2px 2px;
 }
 
 .divCadFooter
 {
 background-color: #C5DBEC;
+float:bottom;
+height: 25px;
 margin: 5px 5px 5px 5px;
 }
 
 #accordion{
-height: 590px;}
+}
 
 #edtCADQuickEntry{
 width: 228px;

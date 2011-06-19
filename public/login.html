@@ -1,0 +1,47 @@
+<html>
+<script src="https://www.google.com/jsapi?key=ABQIAAAAkOk-yYhvl3IBL1l4GBz2sBRi_1FocIu1kGv-nXmZvM12kyfEZBQavHCu0bWb3kMWI863burEsQKyNQ" type="text/javascript"></script>
+
+<script type="text/javascript">
+  google.load("jquery", "1.6.1");
+  google.load("jqueryui", "1.8.13");
+</script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/redmond/jquery-ui.css" media="screen" rel="stylesheet" type="text/css" >
+
+<title>Login</title>
+  
+
+<body>
+<div id="divLogin">
+<form method="put" id="login" action="login">
+  Username: <input type="text" name="cadname" size="15" /><br />
+  Password: <input type="password" name="cadpassword" size="15" /><br />
+</form>
+</div>
+
+
+<script>
+$(document).ready(
+	function() {
+	$( "#login" ).dialog(
+						{ 
+							title : "CAD Login",
+							resizable: false,
+							buttons: {
+										"Login" : function () {
+														  $("form#login").submit();
+														  console.log('submitted');
+														  
+														  }
+									},
+						}
+						);
+				}
+				);
+						
+</script>
+
+
+
+</body>
+
+</html>
