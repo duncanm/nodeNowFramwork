@@ -25,6 +25,7 @@ var	CAD = {
 		
 		this.doWhenNowIsReady = function () {
 			for (var i=0; i < this.whenNowIsReady.length; i++) {
+					console.log('doing');
 					this.whenNowIsReady[i]();
 			}
 		};
@@ -35,6 +36,7 @@ var	CAD = {
 		
 		now.ready(function(){
 			CAD.doWhenNowIsReady();
+			
 			});
 	},
 
@@ -94,7 +96,9 @@ var	CAD = {
 	},
 	
 	fillSelectWithCollection: function(element, collection, field) {
+	  console.log(collection.length);
 	  collection.each( function(member) {
+						console.log(member);
 						$(element).
 							append($("<option></option>").
 							attr("value",member.get("id")).

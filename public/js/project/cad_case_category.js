@@ -13,6 +13,7 @@ CADCaseCategories = Backbone.Collection.extend({
 		},
 		
 		onGotCaseCategories: function (data) {
+			console.log(data);
 			this.addCouchData(data);
 		},
 		

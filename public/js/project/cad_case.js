@@ -91,13 +91,7 @@ CaseView = Backbone.View.extend({
 
 	saveCase: function (event) {
 		if (this.validateForm()){
-			if ( this.model.get('id') == 0)  {
-				now.createCase(this.onCaseCreated, this.onFailSaved, this.model);
-			}
-			else
-			{
-				now.updateCase(this.onCaseUpdated, this.onFailSaved, this.model);
-			};
+				this.model.save({},{error: function () {alert('error');}, success: function () {} });
 			};
 	},
 

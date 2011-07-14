@@ -7,3 +7,16 @@ function addCouchData(data) {
 
 Backbone.Collection.prototype.addCouchData = addCouchData;
 
+
+Backbone.sync = function(method, model, options) {
+	console.log(options);
+	options();
+	if ( method === "create" ) {
+		console.log('saved');
+		now.saveModel(typeof model, model);
+	}
+	
+	
+	model.id =1;
+};
+
